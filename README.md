@@ -8,6 +8,5 @@
 - Icon by [**font-awesome**](https://fortawesome.github.io/Font-Awesome/)
 - Keyboard by [**KeyboardJS**](https://github.com/RobertWHurst/KeyboardJS)
 - File saver by [**FileSaver**](https://github.com/eligrey/FileSaver.js)
-- test
 
 ![](http://mec0825.net/images/maxdown/maxdown.jpeg)
