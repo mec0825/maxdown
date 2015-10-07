@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Maxdown</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="./libs/editor-style.css" >
+        <link rel="stylesheet" href="./libs/highlight/styles/default.css">
+        <link rel="stylesheet" href="./libs/font-awesome/css/font-awesome.min.css">
+        <script src="./libs/highlight/highlight.pack.js"></script>
+        <script src="./libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+
+    <body>
+        <div id="top">
+            <ul id="menu">
+                <li>
+                    <input type="file" id="fileupload"/>
+                    <button id="upload">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-folder-open-o fa-inverse"></i>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button id="save">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-save fa-inverse"></i>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button id="refresh">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-refresh fa-inverse"></i>
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button id="download">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-download fa-inverse"></i>
+                        </span>
+                    </button>
+                </li>
+            </ul> 
+        </div>
+
+        <div id="container">
+            <div id="left">
+                <div id="textarea-container">
+                    <textarea id="pad"></textarea>
+                </div>
+            </div>
+            <div id="mid"></div>
+            <div id="right">
+                <div id="markdown-container">
+                    <iframe id="markdown" sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+                    <div id="markdown-buffer" style="display:none;"></div>
+                </div>
+            </div>
+        </div>
+        <div id="foot"></div>
+
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                showProcessingMessages: false,
+                TeX: {
+                    equationNumbers: {autoNumber: "AMS"}
+                }
+            });
+        </script>
+
+        <script src="/static/bundle.js"></script>
+    </body>
+</html>

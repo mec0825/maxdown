@@ -1,4 +1,5 @@
 # maxdown
+
 ### Simple markdown editor
 
 - Markdown parser and compiler by [**marked**](https://github.com/chjj/marked)
@@ -9,4 +10,16 @@
 - Keyboard by [**KeyboardJS**](https://github.com/RobertWHurst/KeyboardJS)
 - File saver by [**FileSaver**](https://github.com/eligrey/FileSaver.js)
 
+### Usage
+
+```bash
+brew install node
+npm install -g webpack
+cd ${MAXDOWN_PATH}
+npm install
+npm start
+open http://localhost:3000/
+```
+
+### Screenshot
 ![](http://mec0825.net/images/maxdown/maxdown.jpeg)
