@@ -53,6 +53,7 @@ class Editor {
      * @method Editor#update
      */
     update() {
+        console.log(this.mjRunning)
         if (this.mjRunning) {
             return
         };
@@ -149,7 +150,8 @@ class Editor {
         if (this.options.keyboard) {
             this.enableKeyboard();
         }
-        this.bindEvents()
+        this.bindEvents();
+        this.update();
     }
 }
 

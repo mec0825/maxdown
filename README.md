@@ -15,6 +15,7 @@
 ```bash
 brew install node
 npm install -g webpack
+cd ${MAXDOWN_PATH}
 npm install
 npm start
 open http://localhost:3000/
