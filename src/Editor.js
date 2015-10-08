@@ -20,6 +20,12 @@ class Editor {
         this.preview = preview;
         this.options = options;
 
+        this.iframePreview = this.preview.contentWindow.document || this.preview.contentDocument.document;
+
+        // 左右滚动设置标识
+        this.scrollFlagInput = false;
+        this.scrollFlagIframe = false;
+
         this.input.value = localStorage.getItem("tmpArticle") || '';
         this.prepare();
     }
@@ -53,7 +59,6 @@ class Editor {
      * @method Editor#update
      */
     update() {
-        console.log(this.mjRunning)
         if (this.mjRunning) {
             return
         };
@@ -81,10 +86,35 @@ class Editor {
      * @method Editor#textareaScroll
      */
     textareaScroll() {
-        let body = this.preview.contentWindow.document.body;
+        if (this.scrollFlagIframe == true) {
+            this.scrollFlagIframe = false;
+            return;
+        } 
+
+        this.scrollFlagInput = true;
+        let body = this.iframePreview.body;
         let bodyHeight = body.scrollHeight - body.clientHeight;
         let inputHeight = this.input.scrollHeight - this.input.clientHeight;
         body.scrollTop = this.input.scrollTop / inputHeight * bodyHeight;
+    }
+
+    /**
+     * 跟随右栏滚动
+     *
+     * @public
+     * @method Editor#iframePreview
+     */
+    iframeScroll() {
+        if (this.scrollFlagInput == true) {
+            this.scrollFlagInput = false;
+            return;
+        } 
+
+        this.scrollFlagIframe = true;
+        let body = this.input;
+        let bodyHeight = body.scrollHeight - body.clientHeight;
+        let inputHeight = this.iframePreview.body.scrollHeight - this.iframePreview.body.clientHeight;
+        body.scrollTop = this.iframePreview.body.scrollTop / inputHeight * bodyHeight;
     }
 
     /**
@@ -95,7 +125,9 @@ class Editor {
      */
     bindEvents() {
         this.input.addEventListener('keyup', this.update.bind(this), false);
+
         this.input.addEventListener('scroll', this.textareaScroll.bind(this), false);
+        this.iframePreview.addEventListener('scroll', this.iframeScroll.bind(this), false);
     }
 
     /**
