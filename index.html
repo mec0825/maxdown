@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="./libs/font-awesome/css/font-awesome.min.css">
         <script src="./libs/highlight/highlight.pack.js"></script>
         <script src="./libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <!-- <script type="text/javascript"                                                                -->
+                <!-- src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> -->
+        <!-- </script>                                                                                     -->
     </head>
 
     <body>
@@ -66,6 +69,9 @@
                 showProcessingMessages: false,
                 TeX: {
                     equationNumbers: {autoNumber: "AMS"}
+                },
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']]
                 }
             });
         </script>
